@@ -8,6 +8,6 @@ defmodule Rumbler.Repo.Migrations.CreateUsers do
 
       timestamps()
     end
-   create unique_index(:users,[:usernamw])
+   create unique_index(:users,[:username])
   end
 end
