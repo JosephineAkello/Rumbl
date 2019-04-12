@@ -1,6 +1,7 @@
 defmodule RumblerWeb.UserController do
   use RumblerWeb, :controller
 
+  alias Rumbler.Accounts.User
   alias Rumbler.Accounts
 
   @spec index(Plug.Conn.t(), any()) :: Plug.Conn.t()
@@ -13,4 +14,9 @@ defmodule RumblerWeb.UserController do
     user =Accounts.get_user(id)
     render(conn, "show.html", user: user)
 end
+def new(conn, _params) do
+  changeset = Accounts.change_user(%User{})
+  render(conn, "new.html", changeset: changeset)
+end
+
 end
